@@ -1,0 +1,3 @@
+nome do banco: dafonte
+tabela: login(email,senha,idLogin - primary key not null)
+sql phpmyadmin do xamp
