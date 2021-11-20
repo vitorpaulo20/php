@@ -2,23 +2,6 @@
 header("Content-Type: text/html; charset=UTF-8");
 
 
-    $servidor= "localhost";
-    $usuario= "root";
-    $senha= "";
-    $dbname="dafonte";
-    
-    //conexão com banco de dados
-    
-    $conn=mysqli_connect($servidor, $usuario, $senha, $dbname);
-
-    if(!$conn){
-    die("Falha na conexao" . mysqli_connect_error());
-    }else{
-    echo "conexao realizada com sucesso<br><br><hr>";
-    }
-
-
-
     //Cadastrar usuario 
 
         $email = $_GET['emailInput'];
@@ -61,7 +44,7 @@ header("Content-Type: text/html; charset=UTF-8");
 
 
    
-
+;
 
 
 
