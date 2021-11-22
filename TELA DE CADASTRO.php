@@ -8,7 +8,7 @@ include_once "conexao.php";
 
 <head>
 	<meta charset="UTF-8">
-	<title>TELA DE CADASTRO</title>
+	<title>TELA LISTAR</title>
 	<style>
 		form1 {
 
@@ -39,7 +39,7 @@ include_once "conexao.php";
 <body>
 
 
-	<h3 style="background-color: RED;"><i>CADASTRO DE FUNCIONARIO</i></h3>
+	<h3 style="background-color: RED;"><i>LISTAR FUNCIONARIO</i></h3>
 
 
 	<br>
@@ -73,8 +73,9 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
  <?php
  if(!empty($dados['pesqUsuario'])){
+
 $email = $dados['email_usuario'];
-$senha =$dados['senha_usuario'];
+$senha = $dados['senha_usuario'];
 
 
 $query_usuarios = "SELECT idLogin, email, senha FROM login WHERE email LIKE :email";
@@ -82,22 +83,31 @@ $result_usuarios = $conn->prepare($query_usuarios);
 $result_usuarios->bindParam(':email', $email, PDO::PARAM_STR);
 $result_usuarios->execute();
 
+
+
 $emailInput = $_POST['email_usuario'];
+$senhaInput = $_POST['senha_usuario'];
+
+
+
+
 
 
 while($row_usuario = $result_usuarios->fetch(PDO::FETCH_ASSOC)){
-
 echo "<br>";	
 extract($row_usuario);
 echo "ID do usuario: $idLogin <br>";
 echo "Email do usuario: $email <br>";
 echo "Senha do usuario: $senha <br>";
-echo "<hr>";
+echo "<hr><br>";
+}
+
+
+ 
 
  }
-
-}
  
+
  ?>
 
 	
